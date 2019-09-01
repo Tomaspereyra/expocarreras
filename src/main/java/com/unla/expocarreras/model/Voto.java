@@ -2,16 +2,23 @@ package com.unla.expocarreras.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Voto {
+@Id
+@GeneratedValue(strategy =GenerationType.IDENTITY)
 private int id;
 private Date fecha;
 private int estimacion;
 public Voto() {
 	super();
 }
-public Voto(int id, Date fecha, int estimacion) {
-	super();
-	this.id = id;
+public Voto(Date fecha, int estimacion) {
+	
 	this.fecha = fecha;
 	this.estimacion = estimacion;
 }
