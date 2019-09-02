@@ -1,5 +1,6 @@
 package com.unla.expocarreras.services.impl;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class UsuarioServiceImpl implements IUsuarioServicio{
 
 	@Override
 	public void ingresarUsuario(Usuario usuario) {
+		usuario.getVoto().setFecha(new Date());
 		this.usuarioRepo.save(usuario);
 		
 	}

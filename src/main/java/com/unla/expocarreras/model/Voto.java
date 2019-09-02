@@ -15,11 +15,11 @@ private int id;
 private Date fecha;
 private int estimacion;
 public Voto() {
-	super();
-}
-public Voto(Date fecha, int estimacion) {
 	
-	this.fecha = fecha;
+}
+public Voto(int estimacion) {
+	
+	this.fecha = new Date();
 	this.estimacion = estimacion;
 }
 public int getId() {
