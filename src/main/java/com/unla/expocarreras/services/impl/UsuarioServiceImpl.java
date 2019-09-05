@@ -1,6 +1,7 @@
 package com.unla.expocarreras.services.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,25 @@ public class UsuarioServiceImpl implements IUsuarioServicio{
 	public Optional<Usuario> traerUsuario(Integer id) {
 		return this.usuarioRepo.findById(id);
 	}
+
+	@Override
+	public List<Usuario> traerUsuarios() {
+		return this.usuarioRepo.findAll();
+	}
+	
+	public String[] traerEmails(){
+		List<Usuario> usuarios = this.traerUsuarios();
+		String[] emails = new String[usuarios.size()];
+		
+		for(int i=0;i<usuarios.size();i++) {
+			emails[i] = usuarios.get(i).getEmail();
+		}
+		
+		return emails;
+	}
+	
+	}
+	
 	
 
-}
+
