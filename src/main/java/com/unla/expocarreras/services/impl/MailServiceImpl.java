@@ -30,8 +30,8 @@ public class MailServiceImpl implements ISendMails {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
-		mailSender.setUsername("pereyratomas18@gmail.com");
-		mailSender.setPassword("absxbeiccqzhzqrq");
+		mailSender.setUsername("carreras.expo@gmail.com");
+		mailSender.setPassword("rauflgcuplzatmfa");
 		
 		Properties props = mailSender.getJavaMailProperties();
 		
