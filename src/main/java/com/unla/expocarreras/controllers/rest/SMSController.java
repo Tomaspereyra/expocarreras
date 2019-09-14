@@ -11,7 +11,11 @@ public class SMSController {
 	@GetMapping(value="send")
 	public String sendSms() {
 		RestTemplate restTemplate = new RestTemplate();
-		String resultado = restTemplate.getForObject("https://smsgateway24.com/getdata/addsms?token={token}&sendto={sendto}&body={body}&device_id={device_id}", String.class,"b8c30b1e2f9cac31b662691faec2ec65","1134348002","Hola","929");
+		String token="b8c30b1e2f9cac31b662691faec2ec65";
+		String numero = "1130840174";
+		String msj ="hola";
+		String idDispositivo = "929";
+		String resultado = restTemplate.getForObject("https://smsgateway24.com/getdata/addsms?token={token}&sendto={sendto}&body={body}&device_id={device_id}", String.class,token,numero,msj,idDispositivo);
 		System.out.println(resultado);
 		return resultado;
 		
