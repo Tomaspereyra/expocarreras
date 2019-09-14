@@ -28,6 +28,10 @@ public class UsuarioController {
 		mav.addObject("voto", new Voto());
 		return mav;
 	}
+	@GetMapping("/log")
+	public String login() {
+		return "index2";
+	}
 	
 	@PostMapping("/votar")
 	public String ingresarUsuario(Usuario u,Voto v, Model model) {

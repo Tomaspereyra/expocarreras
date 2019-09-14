@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+        window.fbAsyncInit = function() {
+          FB.init({
+        	appId			 :'672491223261457',
+            xfbml            :true,
+            version          :'v4.0'
+          });
+          FB.Event.subscribe('messenger_checkbox', function(e) {
+              console.log("messenger_checkbox event");
+              console.log(e);
+              
+              if (e.event == 'rendered') {
+                console.log("Plugin was rendered");
+              } else if (e.event == 'checkbox') {
+                var checkboxState = e.state;
+                console.log("Checkbox state: " + checkboxState);
+              } else if (e.event == 'not_you') {
+                console.log("User clicked 'not you'");
+              } else if (e.event == 'hidden') {
+                console.log("Plugin was hidden");
+              }
+              
+            });
+         // confirmOptIn();
+          FB.Event.subscribe('messaging_optins',function (e){
+        	  console.log("messagin_options");
+        		console.log(e);
+          });
+        };
+        
+        function confirmOptIn() {
+        	console.log("clikeaste");
+            FB.AppEvents.logEvent('MessengerCheckboxUserConfirmation', null, {
+              'app_id':'672491223261457',
+              'page_id':'101580501232774',
+              'user_ref':'tyuhgv2dsds3df45h4oprtgd'
+            });
+          
+        }
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+        
+        
+        </script>
+
+	<!-- Your customer chat code -->
+	<div class="fb-customerchat" attribution=setup_tool
+		page_id="101580501232774"></div>
+	<div class="fb-send-to-messenger" messenger_app_id=672491223261457
+		page_id="101580501232774" color="blue" size="large"></div>
+	<form>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label> <input
+				type="email" class="form-control" id="exampleInputEmail1"
+				aria-describedby="emailHelp" placeholder="Enter email"> <small
+				id="emailHelp" class="form-text text-muted">We'll never
+				share your email with anyone else.</small>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Password</label> <input
+				type="password" class="form-control" id="exampleInputPassword1"
+				placeholder="Password">
+		</div>
+		<div class="form-check">
+			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+			<label class="form-check-label" for="exampleCheck1">Check me
+				out</label>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	<div class="fb-messenger-checkbox"
+		origin="https://sour-frog-68.localtunnel.me" page_id=101580501232774
+		messenger_app_id=672491223261457 user_ref="tyuhgv2dsds3df45h4oprtgd"
+		allow_login="true" size="large" skin="dark" center_align="true">
+	</div>
+	<input type="button" onclick="confirmOptIn()" value="Confirm Opt-in"/>
+	</form>
+	
+
+</body>
+</html>
