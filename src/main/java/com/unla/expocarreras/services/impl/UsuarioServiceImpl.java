@@ -1,5 +1,6 @@
 package com.unla.expocarreras.services.impl;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +19,7 @@ public class UsuarioServiceImpl implements IUsuarioServicio{
 	private IUsuarioRepo usuarioRepo;
 
 	@Override
-	public void ingresarUsuario(Usuario usuario) {
+	public void ingresarUsuario(Usuario usuario)throws SQLException {
 		usuario.getVoto().setFecha(new Date());
 		this.usuarioRepo.save(usuario);
 		
@@ -44,6 +45,22 @@ public class UsuarioServiceImpl implements IUsuarioServicio{
 		
 		return emails;
 	}
+	
+	public double calcularPromedio() {
+		int total=0;
+		double promedio =0;
+		List<Usuario> usuarios = this.traerUsuarios();
+		for(Usuario u:usuarios) {
+			total+= u.getVoto().getEstimacion();
+			
+		}
+		if(usuarios.size()!=0) {
+			promedio = total / usuarios.size();
+		}
+		
+		return promedio;
+	}
+	
 	
 	}
 	

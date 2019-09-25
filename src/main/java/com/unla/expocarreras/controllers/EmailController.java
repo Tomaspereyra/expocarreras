@@ -24,10 +24,8 @@ public class EmailController {
 	
 	@GetMapping
 	public String enviarEmails() {
-		//List<String> emails = new ArrayList<String>();
-		//emails.add("ramiropereyra21@gmail.com");
 		
-		mailService.sendEmail(this.usi.traerEmails(), "probando", "desde java");
+		mailService.sendEmail(this.usi.traerEmails(), "Expo Unla-Sistemas", "Hola!");
 		
 		return "index";
 	}

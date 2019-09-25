@@ -17,10 +17,11 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
-	private int id;
+	private Integer id;
 
 	private String nombre;
 	private String apellido;
+	private int numero;
 	
 	@NotNull
 	@NotEmpty
@@ -32,11 +33,20 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(String nombre, String apellido, String email) {
+	public Usuario(String nombre, String apellido, String email,int numero) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
+		this.numero = numero;
+	}
+	
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 	public Voto getVoto() {
@@ -71,17 +81,18 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", numero=" + numero + ", email="
+				+ email + ", voto=" + voto + "]";
 	}
 
 }

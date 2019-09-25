@@ -7,7 +7,7 @@ plugins {
 group = 'com.unla'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
+apply plugin: 'war'
 configurations {
 	developmentOnly
 	runtimeClasspath {
@@ -30,5 +30,5 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: "com.twilio.sdk", name: "twilio", version: "7.42.0"
     compile group: 'com.google.code.gson', name: 'gson', version:'2.7'
-
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
