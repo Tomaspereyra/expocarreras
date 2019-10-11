@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import com.unla.expocarreras.model.Usuario;
 
-public interface IUsuarioServicio {
+public interface IUsuarioService {
 	
 	
 	public void ingresarUsuario(Usuario u) throws SQLException;

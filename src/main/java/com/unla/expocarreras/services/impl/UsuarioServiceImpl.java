@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.unla.expocarreras.model.Usuario;
 import com.unla.expocarreras.repository.IUsuarioRepo;
-import com.unla.expocarreras.services.IUsuarioServicio;
+import com.unla.expocarreras.services.IUsuarioService;
 
 @Service("usuarioService")
-public class UsuarioServiceImpl implements IUsuarioServicio{
+public class UsuarioServiceImpl implements IUsuarioService{
 	
 	@Autowired
 	private IUsuarioRepo usuarioRepo;

@@ -3,7 +3,6 @@ package com.unla.expocarreras.services.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,17 +18,16 @@ import com.unla.expocarreras.services.ICaptchaService;
 
 
 @Service("captchaService")
-public class CaptchaService implements ICaptchaService {
+public class CaptchaServiceImpl implements ICaptchaService {
 	
 	 @Autowired
 	 private HttpServletRequest request;
-	@Autowired
+	
+	 @Autowired
 	private CaptchaSettings captchaSettings;
 	
 	private static final String GOOGLE_VERIFY_URL ="https://www.google.com/recaptcha/api/siteverify";
 
-	
-	private static Pattern RESPONSE_PATTERN = Pattern.compile("[A-Za-z0-9_-]+");
 	
 	@Override
 	public String processResponse(String response) {
@@ -50,13 +48,15 @@ public class CaptchaService implements ICaptchaService {
 	    		          "?secret={secret}&response={response}&remoteip={remoteip}",body,Map.class, body);
 	  
 	             
-	    Map<String, Object> responseBody =  recaptchaResponseEntity.getBody();       
+	    @SuppressWarnings("unchecked")
+		Map<String, Object> responseBody =  recaptchaResponseEntity.getBody();       
 	    System.out.println(responseBody);
 	    boolean recaptchaSucess = (Boolean)responseBody.get("success");
 
 	    if ( !recaptchaSucess) {
 
-	        List<String> errorCodes = (List<String>)responseBody.get("error-codes");
+	        @SuppressWarnings("unchecked")
+			List<String> errorCodes = (List<String>) responseBody.get("error-codes");
 
 	         
 

@@ -1,49 +1,125 @@
 <!DOCTYPE html>
    <html lang="es" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Gracias</title>
+	<title>SabiduriaTodxs</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" th:href="@{../images/icons/favicon.ico}"/>
+	<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/icons/favicon-32x32.png}"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../fonts/iconic/css/material-design-iconic-font.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/iconic/css/material-design-iconic-font.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/animate/animate.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/animsition/css/animsition.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/select2/select2.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../vendor/daterangepicker/daterangepicker.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" th:href="@{../css/util.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{../css/main.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
 <!--===============================================================================================-->
 </head>
 <body>
 
 
 	<div class="container-login100"
-		style="background-image: url('../images/unla-2.jpg');">
-				<div class="card w-50 border-info text-center">
-					
-					<div class="card-header">Expo Unla</div>
-					<div class="card-body text-info">
-						<h5 class="card-title m-3">¡Resultados!</h5>
-						<h5 class="card-text m-3">Total de pelotitas:</h5>
-						<h5 class="card-text m-3" th:text="${resultado.total}"></h5>
-						<h5 class="card-text m-3">Promedio ingresado:</h5>
+		style="background-image: url('/images/unla-2.jpg');">
+			
+			<div class="wrap-login100  p-l-25 p-r-25 p-b-25 justify-content-center">
+			
+				
+				<div th:if="${error}" th:text="${error}"  class="row alert alert-primary mt-5" role="alert">
 						
-						<h5 class="card-text m-3" th:text="${resultado.promedio}">promedio</h5>
+						</div>
+				<span th:if="${resultado}" class="login100-form-title p-b-37 mt-3"> ¡Resultados! </span>
+				<div th:if="${resultado}"class="text-center p-b-20" style="border-bottom: 3px solid #4b2354;" >
+						<dl class="row justify-content-center">
+  						<dt class="col-sm-6">Total de pelotitas</dt>
+  						<dd class="col-sm-3" th:text="${resultado.total}"></dd>
+
+  						<dt class="col-sm-6">Promedio</dt>
+  							<dd class="col-sm-3"th:text="${resultado.promedio}">
+    
+  						</dd>  
+ 
+						</dl>
+						<table class="table mt-4">
+  								<thead>
+   									 <tr>
+    									  <th scope="col" class="col-1">#</th>
+    									  <th scope="col" class="col-3">Nombre</th>
+   								   		  <th scope="col" class="col-5">Ult. 3 digitos de celular</th>
+   									      <th scope="col" class="col-3">Premio</th>
+    								</tr>
+  								</thead>
+  							<tbody>
+    						<tr>
+      							<th scope="row">1</th>
+      									<td>Gastón Domínguez</td>
+     									 <td>476</td>
+   									   <td>Pendrive 16GB</td>
+   							 </tr>
+   							 <tr>
+      							<th scope="row">2</th>
+     							  <td>Walter Fabián Ardenghi</td>
+    							  <td>459</td>
+    							  <td>Set UNLa</td>
+    						</tr>
+   							 <tr>
+     							 <th scope="row">3</th>
+     							 <td>Ro</td>
+     							 <td>015</td>
+   								   <td>Set UNLa</td>
+   							 </tr>
+  							</tbody>
+						</table>
+
+				</div>
+				<div class="row">
+				<div class="col-12">
+				<div class="text-center mt-3">
+					<h5 class="mb-2"> Agradecimiento a los vecinos de Lanús:</h5>
+					<p class="txt2 font-weight-bold">D.I. Guillermo Zembrzycki - Arq. José Richiedei</p>
+					<p class="txt2 font-weight-bold">I.P.A.B. s.r.l. Fabricación de Bolsas y Film de Politileno </p>
+				</div>
+				</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-4 mt-5">
+					<img th:src="@{/images/Universidad_Nacional_de_Lanús_logo.png}" class="img-fluid" alt="Estudiantes de sistemas">
+				
 					</div>
-					<div class="card-footer bg-transparent border-info">Gracias por participar</div>
+					<div class="col-6">
+					<div class="text-center mt-3">
+					<p class="txt2 text-muted"> Departamento Desarrollo
+						Productivo y Tecnológico </p>
+				</div>
+				<div class="text-center mt-3">
+					<p  class="txt2 text-muted"> Licenciatura en Sistemas </p>
+				</div>
+				<div class="text-center mt-3">
+					<p class="txt2 text-muted"> Laboratorio de Software </p>
+				</div>
+				<div class="text-center mt-3">
+					<p class="txt2 text-muted"> Laboratorio de Matemática </p>
+				</div>
+				<div class="text-center mt-3">
+					<p class="txt2 text-muted"> Dirección de Informática </p>
+				</div>
+					
+					</div>
+				</div>
+				
+			
+				
 				</div>
 
 		
@@ -51,26 +127,31 @@
 
 
 	</div>
+	
+
+		
+
+
 
 
 
 
 	<!--===============================================================================================-->
-	<script th:src="@{../vendor/jquery/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../vendor/animsition/js/animsition.min.js}"></script>
+	<script th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../vendor/bootstrap/js/popper.js}"></script>
-	<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../vendor/select2/select2.min.js}"></script>
+	<script th:src="@{/vendor/select2/select2.min.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../vendor/daterangepicker/moment.min.js}"></script>
-	<script th:src="@{../vendor/daterangepicker/daterangepicker.js}"></script>
+	<script th:src="@{/vendor/daterangepicker/moment.min.js}"></script>
+	<script th:src="@{/vendor/daterangepicker/daterangepicker.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../vendor/countdowntime/countdowntime.js}"></script>
+	<script th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
 <!--===============================================================================================-->
-	<script th:src="@{../js/main.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 
 </body>
 </html>

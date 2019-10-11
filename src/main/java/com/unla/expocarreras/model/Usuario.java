@@ -20,7 +20,6 @@ public class Usuario {
 	private Integer id;
 
 	private String nombre;
-	private String apellido;
 	private int numero;
 	
 	@NotNull
@@ -36,7 +35,6 @@ public class Usuario {
 	public Usuario(String nombre, String apellido, String email,int numero) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
 		this.email = email;
 		this.numero = numero;
 	}
@@ -65,14 +63,6 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -91,8 +81,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", numero=" + numero + ", email="
-				+ email + ", voto=" + voto + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", numero=" + numero + ", email=" + email + ", voto=" + voto
+				+ "]";
 	}
+
 
 }

@@ -19,27 +19,80 @@
 
 		</div>
 		<div class="row justify-content-center m-5 mt-5">
-			<div class="col-xl-9 mt-5">
+			<div class="col-sm-7 mt-5 ">
 
 
-				<form class="form-inline" th:action="@{/inicio/enviar}" method="post">
-					<!--  <div class="form-group mb-2">
-						<label for="staticEmail2" class="sr-only">Total</label> <input
-							type="text" readonly class="form-control-plaintext"
-							id="staticEmail2" value="Total de pelotitas:">
-					</div>-->
+				<form class="form-inline" th:action="@{../inicio/cargar}" method="post">
+					
 					<div class="form-group mx-sm-3 mb-2">
 						<label for="inputTotal" class="sr-only">Cantidad</label> <input
 							type="number" class="form-control" name="total" th:value="*{total}" id="inputTotal"
 							placeholder="Cantidad">
 					</div>
-					<button type="submit" class="btn btn-primary mb-2">Enviar resultados</button>
+					<button type="submit" class="btn btn-primary mb-2">Cargar total</button>
 				</form>
-
-			</div>
-					</div>
+				</div>
+				</div>
+				<div class="row justify-content-center m-5 mt-5">
+					<div class="col-6">
+					<a href="/expocarreras/inicio/enviarsms" class="btn btn-primary mb-2">Enviar SMS</a>
+					 </div>
+					 <div class="col-6">
+					<a href="/expocarreras/inicio/enviaremail" class="btn btn-primary mb-2">Enviar Emails</a>
+					 </div>
+				</div>
 				
-		</div>
+				
+				
+				<div class="row justify-content-center mt-5" th:if="${emailsEnviados}">
+					 	<div class="col-sm-6 m-3" >
+					 	<h3>Emails enviados</h3>
+					 	</div>
+				</div>
+				
+				<div class="row justify-content-center mt-5" th:if="${enviados}">
+				
+					 	<div class="col-sm-5 m-3" >
+						<h3>Sms enviados:</h3>			
+					 	</div>
+					 	<div class="col-sm-1 m-3" >
+						<h3 th:text="${enviados}"></h3>
+					 	</div>   
+					 	</div>	
+					 	<div class="row justify-content-center mt-5" th:if="${enviados}">
+				
+					 	<div class="col-sm-5 m-3" >
+						<h3>Sms no enviados:</h3>
+					 	</div>
+					 	<div class="col-sm-1 m-3" >
+						<h3 th:text="${noEnviados}"></h3>
+						
+					 	</div>   
+					 	</div>
+					 	<div th:if="${emailsEnviados==false}" class="row alert alert-primary mt-5" role="alert">
+						No se pudo enviar los emails
+						</div>
+						<div th:if="${errorMail}" th:text="${errorMail}"  class="row alert alert-primary" role="alert">
+						
+						</div>
+						<div th:if="${resultadoNulo}" th:text="${resultadoNulo}"  class="row alert alert-primary" role="alert">
+						
+						</div>
+						<div th:if="${cargado}" th:text="${cargado}"  class="row alert alert-primary" role="alert">
+						
+						</div>
+						
+					 	<div th:if="${enviados}" class="row alert alert-primary" role="alert">
+						<a class="text-center" href="http://sg.unla.edu.ar/expocarreras/resultados"> Ver resultados publicados</a></div>			
+
+  					
+  						
+    
+						</div>
+
+					
+				
+		
 
 	
 	<script th:src="@{../vendor/jquery/jquery-3.2.1.min.js}"></script>

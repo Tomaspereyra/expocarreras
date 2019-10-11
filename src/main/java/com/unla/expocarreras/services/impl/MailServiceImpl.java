@@ -12,7 +12,7 @@ import com.unla.expocarreras.services.ISendMails;
 public class MailServiceImpl implements ISendMails {
 
 	@Override
-	public void sendEmail(String[] emails, String subject, String text) {
+	public void sendEmail(String[] emails, String subject, String text) throws Exception {
 		JavaMailSenderImpl mailSender = this.getJavaMailSender();
 		
 		SimpleMailMessage message = new SimpleMailMessage();		
@@ -20,8 +20,8 @@ public class MailServiceImpl implements ISendMails {
 		message.setBcc(emails); // Bcc envia los mails pero ocultando la lista de destinatarios
 		message.setSubject(subject);
 		message.setText(text);
+		message.setFrom("carreras.expo@gmail.com");
 		mailSender.send(message);
-
 	}
 	
 
